@@ -4,19 +4,17 @@
 # Write a function f1 that takes two integer positional arguments and returns
 # the sum. This is what you'd consider to be a regular, normal function.
 
-# YOUR CODE HERE
-def f1(a, b):
-    return a + b
+def f1(num1, num2):
+    return num1 + num2
 
 print(f1(1, 2))
 
-# Write a function f2 that takes any number of integer arguments and returns the
-# sum.
-# Note: Google for "python arbitrary arguments" and look for "*args"
+# Write a function f2 that takes any number of integer arguments and prints the
+# sum. Google for "python arbitrary arguments" and look for "*args"
 
 # YOUR CODE HERE
 def f2(*args):
-    return a + b
+    return sum(args)
 
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
@@ -25,15 +23,15 @@ print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33
 
 a = [7, 6, 5, 4]
 
-# How do you have to modify the f2 call below to make this work?
-print(f2(a))    # Should print 22
+# What thing do you have to add to make this work?
+print(f2(*a))    # Should print 22
 
 # Write a function f3 that accepts either one or two arguments. If one argument,
 # it returns that value plus 1. If two arguments, it returns the sum of the
-# arguments.
-# Note: Google "python default arguments" for a hint.
+# arguments. Google "python default arguments" for a hint.
 
-# YOUR CODE HERE
+def f3(num1, num2=1):
+    return num1 + num2
 
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
@@ -45,9 +43,11 @@ print(f3(8))     # Should print 9
 # key: foo, value: bar
 # key: baz, value: 12
 #
-# Note: Google "python keyword arguments".
+# Google "python keyword arguments".
 
-# YOUR CODE HERE
+def f4(**kargs): # ** allows for any num of keyword args and store them in a dict called kargs
+    for key, value in kargs.items():
+        print("key: " + str(key) + "," + " value: " + str(value))
 
 # Should print
 # key: a, value: 12
@@ -65,5 +65,5 @@ d = {
     "hp": 3
 }
 
-# How do you have to modify the f4 call below to make this work?
-f4(d)
+# What thing do you have to add to make this work?
+f4(**d)
